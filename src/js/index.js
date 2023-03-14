@@ -1,10 +1,9 @@
-import '../scss/styles.scss'
-import * as bootstrap from 'bootstrap'
+import "../scss/styles.scss";
+import * as bootstrap from "bootstrap";
 
-function test(){
-    console.log("hello");
+function showLogIn() {
+  let logInForm = document.getElementById("loginForm");
+  logInForm.classList.remove("hidden");
 }
 
-export {
-    test,
-}
+export { showLogIn };
