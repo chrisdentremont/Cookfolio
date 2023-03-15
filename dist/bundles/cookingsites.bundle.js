@@ -731,13 +731,13 @@ eval("\r\n\r\n/* istanbul ignore next  */\r\nfunction styleTagTransform(css, sty
 
 /***/ }),
 
-/***/ "./src/js/index.js":
-/*!*************************!*\
-  !*** ./src/js/index.js ***!
-  \*************************/
+/***/ "./src/js/cookingsites.js":
+/*!********************************!*\
+  !*** ./src/js/cookingsites.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"forgotPassword\": () => (/* binding */ forgotPassword),\n/* harmony export */   \"switchForms\": () => (/* binding */ switchForms)\n/* harmony export */ });\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./src/scss/styles.scss\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.esm.js\");\n\r\n\r\n\r\nfunction switchForms() {\r\n  let logInForm = document.getElementById(\"loginForm\");\r\n  let signUpForm = document.getElementById(\"signUpForm\");\r\n  let loginHeader = document.getElementById(\"loginHeader\");\r\n\r\n  if(logInForm.classList.contains(\"hidden\")){\r\n    logInForm.classList.remove(\"hidden\");\r\n    signUpForm.classList.add(\"hidden\");\r\n    loginHeader.textContent = \"Log In\";\r\n  }else{\r\n    logInForm.classList.add(\"hidden\");\r\n    signUpForm.classList.remove(\"hidden\");\r\n    loginHeader.textContent = \"Create Account\";\r\n  }\r\n\r\n  \r\n}\r\n\r\nfunction forgotPassword() {\r\n  console.log(\"hello\");\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack://EntryPoint/./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./src/scss/styles.scss\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.esm.js\");\n\r\n\n\n//# sourceURL=webpack://EntryPoint/./src/js/cookingsites.js?");
 
 /***/ }),
 
@@ -979,7 +979,7 @@ eval("module.exports = \"data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/20
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"index": 0
+/******/ 			"cookingsites": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -1007,7 +1007,7 @@ eval("module.exports = \"data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/20
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/js/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/js/cookingsites.js");
 /******/ 	EntryPoint = __webpack_exports__;
 /******/ 	
 /******/ })()

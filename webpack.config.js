@@ -5,6 +5,9 @@ module.exports = {
   entry: {
     index: "./src/js/index.js",
     recipes: "./src/js/recipes.js",
+    cookingsites: "./src/js/cookingsites.js",
+    ingredients: "./src/js/ingredients.js",
+    settings: "./src/js/settings.js",
   },
   output: {
     path: path.resolve(__dirname, "dist/bundles"),
