@@ -1,42 +1,45 @@
-body{
-    width: 500px;
-    margin: 25px auto;
-    padding: 10em 0;
-    background-color: cadetblue;
-}
-.loginInfo{
-    box-shadow: 0px 10px 30px 0px gray;
-    text-align: center;
-    padding: 1em;
-    border-radius: 10px;
-    background-color: white;
+html {
+  background-image: url("images/foodbackground.jpg");
 }
 
-.loginInfo #welcome_Label{
-    font-size: 36px;
+* {
+  font-family: "Tilt Neon";
 }
 
-.loginInfo #signUp_Label{
-    font-size: 24px;
+.loginPanel {
+  background-color: var(--color2);
+  float: right;
+  width: 40%;
+  height: 100vh;
+  padding: 30px;
 }
 
-.loginInfo #signUpInfo_Label{
-    font-size: 20px;
-    margin: 41px;
+form {
+  justify-content: center;
 }
 
-.loginInfo #confirm_Label{
-    font-size: 20px;
-    margin: 5px;
+h1 {
+  margin-bottom: 5%;
 }
 
-.loginInfo button{
-    margin: 25px auto;
-    font-size: 16px;
-    width: 100px;
-    height: 35px;
+.hidden {
+  display: none;
 }
 
-.loginInfo form a{
-    text-decoration: none;
+.link {
+  cursor: pointer;
+  color: rgb(18, 139, 7);
+  text-decoration: underline;
+}
+
+.link:hover {
+  transition: 0.3s;
+  color: rgb(12, 78, 6);
+}
+
+#footerText {
+  position: absolute;
+  bottom: 5px;
+  color: rgb(126, 122, 122);
+  font-size: 13px;
 }

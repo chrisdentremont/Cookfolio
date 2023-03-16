@@ -19,18 +19,19 @@
   },
   "homepage": "https://github.com/dentremontcatwit/recipetracker#readme",
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "^10.4.14",
     "css-loader": "^6.7.3",
     "postcss-loader": "^7.0.2",
-    "sass": "^1.58.3",
+    "sass": "^1.59.2",
     "sass-loader": "^13.2.0",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.75.0",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.76.1",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
-    "bootstrap": "^5.2.3"
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.3"
   }
 }
