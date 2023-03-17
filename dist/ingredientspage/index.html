@@ -38,6 +38,25 @@
               </div>
             </div>
           </nav>
+
+          <div id="ingredient-controls">
+            <button type="button" class="btn btn-success" onclick="EntryPoint.addIngredient()" style="width:10%; font-size: 14px;">Add Ingredients</button>
+            
+            <label>Show Only:</label>
+            <input class="form-check-input" type="checkbox" value="" id="ingredientCheck" disabled>
+            <label class="form-check-label" for="flexCheckDeaultDisabled">Produce</label>
+
+            <input class="form-check-input" type="checkbox" value="" id="ingredientCheck" disabled>
+            <label class="form-check-label" for="flexCheckDeault">Dairy</label>
+
+            <input class="form-check-input" type="checkbox" value="" id="ingredientCheck" disabled>
+            <label class="form-check-label" for="flexCheckDeault">Protein</label>
+
+            <input class="form-check-input" type="checkbox" value="" id="ingredientCheck" disabled>
+            <label class="form-check-label" for="flexCheckDeault">Starchy Foods</label>
+          
+            <input class="form-control" type="search" placeholder="Search ingredients" aria-label="Search" style="width: 30%;">
+          </div>
     </body>
 
 </html>
