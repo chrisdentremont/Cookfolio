@@ -13,10 +13,11 @@
 
     <body>
         <section class="loginPanel">
-            <h1 id="loginHeader">Create Account</h1>
+            <h1>Recipe Tracker</h1>
+            <h3 id="loginHeader" class="mb-3">Create Account</h3>
             <form action="" class="mb-3" id="signUpForm">
                 <div class="row mb-3">
-                    <div class="col-auto mb-3">
+                    <div class="col-auto">
                         <label for="firstName" class="form-label">First name</label>
                         <input type="text" class="form-control" id="firstName" aria-describedby="firstName">
                     </div>
@@ -55,9 +56,8 @@
                 <button type="submit" class="btn btn-success mb-3">Log In</button>
 
                 <p>Don't have an account? <span class="link" onclick="EntryPoint.switchForms()">Sign Up</span></p>
-                <a class="link" href="recipes/">Go to recipes</a>
             </form>
-
+            <a class="link" href="recipes/">Go to recipes</a>
         </section>
     </body>
 

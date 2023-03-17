@@ -22,6 +22,7 @@
   width: 264px;
   height: 68px;
   display: table-cell;
+  font-family: "Tilt Neon";
 }
 
 .settings-tab label:hover {
