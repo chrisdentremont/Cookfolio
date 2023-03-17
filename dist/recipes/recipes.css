@@ -27,3 +27,20 @@
 select, input {
     font-family: "Roboto Mono";
 }
+
+label {
+    font-family: "Tilt Neon";
+}
+
+.modal-header, .modal-footer {
+    background-color: #e6c585;
+}
+
+.modal-body {
+    background-color: #ceb47e;
+}
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+}

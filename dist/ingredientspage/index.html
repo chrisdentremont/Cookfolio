@@ -14,30 +14,70 @@
     <body>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Recipe Tracker</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="../recipes"><i class="bi bi-book-fill"></i>Recipes</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="../ingredientspage"><i class="bi bi-egg-fill"></i>Ingredients</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../cookingsites"><i class="bi bi-laptop-fill"></i>Sites</a>
-                  </li>
-                </ul>
-                <ul class="navbar-nav mb-2 mb-lg-0" style="margin-right: 5%;">
-                    <li class="nav-item">
-                      <a class="nav-link" aria-current="page" href="../accountsettings"><i class="bi bi-gear-fill"></i>Settings</a>
-                    </li>
-                  </ul>
-              </div>
+                <a class="navbar-brand" href="#">Recipe Tracker</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="../recipes">
+                                <i class="bi bi-book-fill"></i>Recipes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="../ingredientspage">
+                                <i class="bi bi-egg-fill"></i>Ingredients</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../cookingsites">
+                                <i class="bi bi-laptop-fill"></i>Sites</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0" style="margin-right: 5%;">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="../accountsettings">
+                                <i class="bi bi-gear-fill"></i>Settings</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </nav>
+        </nav>
+
+        <div id="ingredient-controls">
+            <button type="button" class="btn btn-success" onclick="EntryPoint.addIngredient()" style="width:15%; font-size: 14px;">Add Ingredients</button>
+
+            <div id="checkboxes">
+                <label>Show Only:</label>
+                <input class="form-check-input" type="checkbox" value="" id="ingredientCheck">
+                <label class="form-check-label" for="flexCheckDeaultDisabled">Produce</label>
+
+                <input class="form-check-input" type="checkbox" value="" id="ingredientCheck" disabled>
+                <label class="form-check-label" for="flexCheckDeault">Dairy</label>
+
+                <input class="form-check-input" type="checkbox" value="" id="ingredientCheck" disabled>
+                <label class="form-check-label" for="flexCheckDeault">Protein</label>
+
+                <input class="form-check-input" type="checkbox" value="" id="ingredientCheck" disabled>
+                <label class="form-check-label" for="flexCheckDeault">Starchy Foods</label>
+            </div>
+
+            <input class="form-control" type="search" placeholder="Search ingredients" aria-label="Search" style="width: 30%;">
+        </div>
+
+        <div id="ingredient-section">
+          <div class="section">
+            <h1>Produce</h1>
+            <div class="section-body">
+              <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">Lettuce
+                  <span class="badge bg-primary rounded-pill">2</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Tomato<span class="badge bg-primary rounded-pill">2</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Potato<span class="badge bg-primary rounded-pill">5</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
     </body>
 
 </html>

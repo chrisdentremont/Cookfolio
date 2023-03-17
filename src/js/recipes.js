@@ -1,7 +1,15 @@
 import "../scss/styles.scss";
 import * as bootstrap from "bootstrap";
 
-function addRecipe(){
+window.onload = () => {
+    const recipeForm = document.getElementById("recipeForm");
+    recipeForm.addEventListener("submit", addRecipe);
+};
+
+function addRecipe(event){
+    event.preventDefault();
+    let formData = event.target.elements;
+
     const cardDiv = document.getElementById("recipe-cards");
 
     //Card
@@ -15,16 +23,15 @@ function addRecipe(){
     cardImage.classList.add("card-img-top");
     newCard.appendChild(cardImage);
 
-    let randomNum = Math.floor(Math.random() * 50);
     //Card Body
     let cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
     let cardTitle = document.createElement("h5");
     cardTitle.classList.add("card-title");
-    cardTitle.textContent = "Recipe " + randomNum;
+    cardTitle.textContent = formData[0].value;
     let cardText = document.createElement("p");
     cardText.classList.add("card-text");
-    cardText.textContent = "A brief description of recipe " + randomNum;
+    cardText.textContent = formData[3].value;
     let cardButton = document.createElement("a");
     cardButton.classList.add("btn", "btn-success");
     cardButton.textContent = "Open Recipe";
@@ -34,6 +41,11 @@ function addRecipe(){
     newCard.appendChild(cardBody);
 
     cardDiv.appendChild(newCard);
+
+    document.getElementById("recipeFormClose").click();
+    event.target.reset();
 }
+
+
 
 export {addRecipe};

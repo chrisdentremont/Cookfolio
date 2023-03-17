@@ -1,0 +1,46 @@
+#ingredient-controls {
+    background-color: #e6c585;
+    border-radius: 7px;
+    margin: 5% 5% 0% 5%;
+    padding: 1%;
+    display: flex;
+    height: 80px;
+}
+
+#ingredient-controls * {
+    margin-right: 1%;
+}
+
+select, input {
+    font-family: "Roboto Mono";
+}
+
+#checkboxes{
+    width: 35%;
+    font-size: 18px;
+    margin: 7px -30px 0px 10px;
+}
+
+#ingredient-section *{
+    margin-right: 1%;
+}
+
+.section {
+    margin: 1% 20% 0% 5%;
+    padding: 1%;
+    background-color: #e6c585;
+    width: 90%;
+    border-radius: 7px;
+}
+
+.section-body .list-group{
+    width: 100%;
+    font-size: 20px;
+    
+}
+
+.section-body .list-group-item{
+    color: black;
+    background-color: #ffe7ba;
+}
+
