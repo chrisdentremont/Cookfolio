@@ -1,55 +1,57 @@
 .settings-tabs {
-    position: relative;
-    min-height: 360px;
-    clear: both;
-    margin: 25px 0;
+  position: relative;
+  min-height: 360px;
+  clear: both;
+  margin: 8%;
 }
 
 .settings-tab {
-    float: left;
-    clear: both;
-    width: 286px;
+  float: left;
+  clear: both;
+  width: 286px;
 }
 
 .settings-tab label {
-    background: #eee;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-left: -1px;
-    font-size: 21px;
-    vertical-align: middle;
-    position: relative;
-    left: 1px;
-    width: 264px;
-    height: 68px;
-    display: table-cell;
+  background: #e6c585;
+  padding: 10px;
+  margin-left: -1px;
+  font-size: 21px;
+  vertical-align: middle;
+  position: relative;
+  left: 1px;
+  width: 264px;
+  height: 68px;
+  display: table-cell;
 }
 
-.settings-tab [type=radio] {
-    display: none;
+.settings-tab label:hover {
+  cursor: pointer;
+}
+
+.settings-tab [type="radio"] {
+  display: none;
 }
 
 .settings-content {
-    position: absolute;
-    top: 0;
-    left: 286px;
-    background: white;
-    right: 0;
-    bottom: 0;
-    padding: 20px;
-    border: 1px solid #ccc;
+  position: absolute;
+  top: 0;
+  left: 286px;
+  background: #ffe7ba;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 .settings-content span {
-    animation: 0.5s ease-out 0s 1 slideInFromTop;
+  animation: 0.5s ease-out 0s 1 slideInFromTop;
 }
 
-[type=radio]:checked~label {
-    background: white;
-    border-bottom: 2px solid #8bc34a;
-    z-index: 2;
+[type="radio"]:checked ~ label {
+  background: #ffe7ba;
+  z-index: 2;
 }
 
-[type=radio]:checked~label~.settings-content {
-    z-index: 1;
+[type="radio"]:checked ~ label ~ .settings-content {
+  z-index: 1;
 }

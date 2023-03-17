@@ -1,109 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="../bundles/recipes.bundle.js"></script>
-        <link rel="stylesheet" href="../../src/css/main.css">
-        <link rel="stylesheet" href="recipes.css">
-        <title>Recipe Tracker</title>
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../bundles/recipes.bundle.js"></script>
+    <link rel="stylesheet" href="../../src/css/main.css">
+    <link rel="stylesheet" href="recipes.css">
+    <title>Recipe Tracker</title>
+  </head>
 
-    <body>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Recipe Tracker</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="../recipes"><i class="bi bi-book-fill"></i>Recipes</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="../ingredientspage"><i class="bi bi-egg-fill"></i>Ingredients</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../cookingsites"><i class="bi bi-laptop-fill"></i>Sites</a>
-                  </li>
-                </ul>
-                <ul class="navbar-nav mb-2 mb-lg-0" style="margin-right: 5%;">
-                    <li class="nav-item">
-                      <a class="nav-link" aria-current="page" href="../accountsettings"><i class="bi bi-gear-fill"></i>Settings</a>
-                    </li>
-                  </ul>
-              </div>
-            </div>
-          </nav>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Recipe Tracker</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../recipes"><i class="bi bi-book-fill"></i>Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../ingredientspage"><i
+                  class="bi bi-egg-fill"></i>Ingredients</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../cookingsites"><i class="bi bi-laptop-fill"></i>Sites</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0" style="margin-right: 5%;">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../accountsettings"><i
+                  class="bi bi-gear-fill"></i>Settings</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-          <div id="recipe-controls">
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#recipeModal" style="width:10%;">Add Recipe</button>
-            <select class="form-select text-bg-success" aria-label="Default select example" style="width: 16%;">
-              <option hidden>Sort by</option>
-              <option value="1">Recent</option>
-              <option value="2">Cooking time</option>
-              <option value="3"># of ingredients</option>
-            </select>
-            <input class="form-control" type="search" placeholder="Search recipes" aria-label="Search" style="width:30%;">
+    <div id="recipe-controls">
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#recipeModal"
+        style="width:8%; font-size: 14px;">Add Recipe</button>
+      <select class="form-select text-bg-success" aria-label="Default select example"
+        style="width: 12%; font-size: 14px;">
+        <option hidden>Sort by</option>
+        <option value="1">Recent</option>
+        <option value="2">Cooking time</option>
+        <option value="3"># of ingredients</option>
+      </select>
+      <input class="form-control" type="search" placeholder="Search recipes" aria-label="Search" style="width:30%;">
+    </div>
+
+    <div id="recipe-cards">
+      <div class="card">
+        <img src="https://fastfood.theringer.com/img/items/3.jpg" height="250" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Recipe 1</h5>
+          <p class="card-text">A brief description of recipe 1</p>
+          <a class="btn btn-success">Open recipe</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add new recipe</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" id="recipeFormClose"
+              aria-label="Close"></button>
           </div>
-
-          <div id="recipe-cards">
-            <div class="card">
-              <img src="https://fastfood.theringer.com/img/items/3.jpg" height="250" class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title">Recipe 1</h5>
-                <p class="card-text">A brief description of recipe 1</p>
-                <a class="btn btn-success">Open recipe</a>
+          <div class="modal-body">
+            <form class="row g-3" id="recipeForm">
+              <div class="col-md-12">
+                <label for="recipeName" class="form-label">Recipe name</label>
+                <input type="text" class="form-control mb-3" id="recipeName" required>
               </div>
-            </div>
-          </div>
 
-          <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Add new recipe</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" id="recipeFormClose" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form class="row g-3" id="recipeForm">
-                    <div class="col-md-12">
-                      <label for="recipeName" class="form-label">Recipe name</label>
-                      <input type="text" class="form-control mb-3" id="recipeName" required>
-                    </div>
-                    
 
-                    <div class="col-md-7">
-                      <label for="recipeType" class="form-label">Recipe type</label>
-                      <select id="recipeType" class="form-select text-bg-success">
-                        <option value="breakfast">Breakfast</option>
-                        <option value="lunch">Lunch</option>
-                        <option value="dinner">Dinner</option>
-                        <option value="snack">Snack</option>
-                      </select>
-                    </div>
-
-                    <div class="col-md-5">
-                      <label for="cookTime" class="form-label">Cook time (minutes)</label>
-                      <input type="number" class="form-control mb-3" id="cookTime">
-                    </div>
-
-                    <div class="col-md-12">
-                      <label for="recipeNotes" class="form-label">Notes</label>
-                      <textarea name="notes" class="form-control mb-3" id="recipeNotes"></textarea>
-                    </div>
-                    
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-success">Add recipe</button>
-                </div>
-              </form>
+              <div class="col-md-7">
+                <label for="recipeType" class="form-label">Recipe type</label>
+                <select id="recipeType" class="form-select text-bg-success">
+                  <option value="breakfast">Breakfast</option>
+                  <option value="lunch">Lunch</option>
+                  <option value="dinner">Dinner</option>
+                  <option value="snack">Snack</option>
+                </select>
               </div>
-            </div>
+
+              <div class="col-md-5">
+                <label for="cookTime" class="form-label">Cook time (minutes)</label>
+                <input type="number" class="form-control mb-3" id="cookTime">
+              </div>
+
+              <div class="col-md-12">
+                <label for="recipeNotes" class="form-label">Notes</label>
+                <textarea name="notes" class="form-control mb-3" id="recipeNotes"></textarea>
+              </div>
+
           </div>
-    </body>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Add recipe</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+
 </html>
