@@ -40,7 +40,7 @@
           </nav>
 
           <div id="recipe-controls">
-            <button type="button" class="btn btn-success" onclick="EntryPoint.addRecipe()" style="width:10%;">Add Recipe</button>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#recipeModal" style="width:10%;">Add Recipe</button>
             <select class="form-select text-bg-success" aria-label="Default select example" style="width: 16%;">
               <option hidden>Sort by</option>
               <option value="1">Recent</option>
@@ -57,6 +57,51 @@
                 <h5 class="card-title">Recipe 1</h5>
                 <p class="card-text">A brief description of recipe 1</p>
                 <a class="btn btn-success">Open recipe</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Add new recipe</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" id="recipeFormClose" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form class="row g-3" id="recipeForm">
+                    <div class="col-md-12">
+                      <label for="recipeName" class="form-label">Recipe name</label>
+                      <input type="text" class="form-control mb-3" id="recipeName" required>
+                    </div>
+                    
+
+                    <div class="col-md-7">
+                      <label for="recipeType" class="form-label">Recipe type</label>
+                      <select id="recipeType" class="form-select text-bg-success">
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="snack">Snack</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-5">
+                      <label for="cookTime" class="form-label">Cook time (minutes)</label>
+                      <input type="number" class="form-control mb-3" id="cookTime">
+                    </div>
+
+                    <div class="col-md-12">
+                      <label for="recipeNotes" class="form-label">Notes</label>
+                      <textarea name="notes" class="form-control mb-3" id="recipeNotes"></textarea>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-success">Add recipe</button>
+                </div>
+              </form>
               </div>
             </div>
           </div>
