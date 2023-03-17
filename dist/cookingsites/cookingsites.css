@@ -1,0 +1,32 @@
+#cooking-sites{
+    background-color: #e6c585;
+    border-radius: 7px;
+    margin: 5% 5% 0% 5%;
+    padding: 1%;
+}
+
+#cooking-sites * {
+    margin-right: 1%;
+}
+
+.list-group {
+    border-radius: 7px;
+    margin-top: 25px;
+}
+
+.list-group table {
+    width: 100%;
+}
+
+.list-group-item {
+    color: black;
+    background-color: #ffe7ba;
+}
+
+.list-group table td:first-child {
+    width: 8%;
+}
+
+.list-group table td:last-child p {
+    margin-left: 30px;
+}
