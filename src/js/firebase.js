@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signOut  } from "firebase/auth";
-import { } from 'firebase/firestore';
+import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA7YoKjnhagQ-5HVUNA1zs0EMz2AD-PYbY",
@@ -14,8 +14,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 const auth = getAuth(app);
+const db = getFirestore(app);
+
+//Check if the user is signed in and send them to the appropriate page
 onAuthStateChanged(auth, (user) => {
   const notOnHomePage = (window.location.href.includes("recipes") || 
   window.location.href.includes("accountsettings") || 
@@ -33,7 +35,6 @@ onAuthStateChanged(auth, (user) => {
       window.location.href = "/";
     }
   }
-
 });
 
 /**
@@ -46,12 +47,34 @@ onAuthStateChanged(auth, (user) => {
  */
 function createUser(email, password, firstName, lastName, modal, modalText){
   createUserWithEmailAndPassword(auth, email, password).then((cred) => {
+    //Email verification
     sendEmailVerification(auth.currentUser).then(() => {
-      modalText.textContent = "A confirmation email has been sent. Please confirm your email before using.";
+      modalText.textContent = "A confirmation email has been sent. Please confirm your email before using. (Email might show up under spam folder)";
       modal.show(); 
       const user = cred.user;
       user.displayName = firstName + " " + lastName;
     });
+
+    //User settings
+    var userInfo = {
+      userSettings: {},
+      recipes: {
+        recipe19342: {
+          name: "chicken",
+          time: 30,
+          notes: "chicken notes",
+        }
+      },
+      ingredients: {
+        ingredient39384: {
+          name: "pineapple slices",
+          quantity: 3,
+          category: "fruits and vegetables",
+        }
+      },
+    };
+    setDoc(doc(db, "users", cred.user.uid), userInfo);
+    signOut(auth);
   }).catch((e) => {
     modalText.textContent = e.message;
     modal.show();
