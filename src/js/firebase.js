@@ -1,6 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signOut  } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
+import { displayRecipes } from "./recipes";
+
+let recipes;
+let ingredients;
 
 const firebaseConfig = {
   apiKey: "AIzaSyA7YoKjnhagQ-5HVUNA1zs0EMz2AD-PYbY",
@@ -34,6 +38,13 @@ onAuthStateChanged(auth, (user) => {
     if(notOnHomePage){
       window.location.href = "/";
     }
+  }
+
+  //Display recipes if on the recipes page
+  if(window.location.href.includes("recipes")){
+    getDoc(doc(db, "users", user.uid)).then((res) => {
+      displayRecipes(res.data());
+    })
   }
 });
 
