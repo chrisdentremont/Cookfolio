@@ -2,11 +2,13 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
 :root {
-  --color1: #c9cba3;
-  --color2: #ffe1a8;
-  --color3: #e26d5c;
-  --color4: #723d46;
-  --color5: #472d30;
+  --baseColor: white;
+  --buttonColor: #B4B8C5;
+  --backgroundColor: #5D737E;
+  --selectedTabColor: #30292F;
+  --navbarColor: #3F4045;
+  --itemBackgroundColor: #02111B;
+  --buttonHoverColor:#7c717b;
 }
 
 html::-webkit-scrollbar {
@@ -20,11 +22,11 @@ html{
 }
 
 body {
-  background-color: #98845b;
+  background-color: var(--backgroundColor);
 }
 
 .navbar {
-  background-color: var(--color2);
+  background-color: var(--navbarColor);
   font-family: "Tilt Neon";
 }
 
@@ -36,10 +38,41 @@ body {
   margin-left: 5%;
 }
 
+.nav-link, .navbar-brand {
+  color: white;
+}
+
+.nav-link:hover, .nav-link:active, .navbar-brand:hover, .navbar-brand:active{
+  color: gray;
+}
+
 i {
   margin-right: 5px;
 }
 
 .btn {
   font-family: "Roboto Mono";
+  background-color: var(--buttonColor);
+  color: black;
+  border: none;
+  font-size: 16px;
 }
+
+.btn:hover {
+  background-color: var(--buttonHoverColor);
+}
+
+.btn:not(:disabled):active{
+  background-color: var(--buttonHoverColor);
+}
+
+select, select option, .form-select {
+  background-color: var(--buttonColor);
+  font-size: 16px;
+  border: none;
+}
+
+
+
+
+

@@ -1,8 +1,9 @@
 #cooking-sites{
-    background-color: #e6c585;
+    background-color: var(--itemBackgroundColor);
     border-radius: 7px;
     margin: 5% 5% 0% 5%;
     padding: 1%;
+    color: white;
 }
 
 #cooking-sites * {
@@ -20,7 +21,7 @@
 
 .list-group-item {
     color: black;
-    background-color: #ffe7ba;
+    background-color: var(--baseColor);
 }
 
 .list-group table td:first-child {

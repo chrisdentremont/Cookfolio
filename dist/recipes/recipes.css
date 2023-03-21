@@ -1,5 +1,5 @@
 #recipe-controls {
-    background-color: #e6c585;
+    background-color: #02111B;
     border-radius: 7px;
     margin: 5% 5% 0% 5%;
     padding: 1%;
@@ -16,11 +16,12 @@
     padding: 1%;
     display: flex;
     flex-wrap: wrap;
+    color: white;
 }
 
 .card {
     width: 19rem;
-    background-color: #e6c585;
+    background-color: #02111B;
     margin: 1% 1% 1% 1%;
 }
 
@@ -33,11 +34,12 @@ label {
 }
 
 .modal-header, .modal-footer {
-    background-color: #e6c585;
+    background-color: #02111B;
+    color: white;
 }
 
 .modal-body {
-    background-color: #ceb47e;
+    background-color: white;
 }
 
 form{

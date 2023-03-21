@@ -1,5 +1,5 @@
 #ingredient-controls {
-    background-color: #e6c585;
+    background-color: var(--itemBackgroundColor);
     border-radius: 7px;
     margin: 5% 5% 0% 5%;
     padding: 1%;
@@ -19,6 +19,7 @@ select, input {
     width: 35%;
     font-size: 18px;
     margin: 7px -30px 0px 10px;
+    color: white;
 }
 
 #ingredient-section *{
@@ -28,9 +29,10 @@ select, input {
 .section {
     margin: 1% 20% 0% 5%;
     padding: 1%;
-    background-color: #e6c585;
+    background-color: var(--itemBackgroundColor);
     width: 90%;
     border-radius: 7px;
+    color: white;
 }
 
 .section-body .list-group{
@@ -41,6 +43,6 @@ select, input {
 
 .section-body .list-group-item{
     color: black;
-    background-color: #ffe7ba;
+    background-color: var(--baseColor);
 }
 

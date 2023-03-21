@@ -12,7 +12,7 @@
 }
 
 .settings-tab label {
-  background: #e6c585;
+  background-color: var(--itemBackgroundColor);
   padding: 10px;
   margin-left: -1px;
   font-size: 21px;
@@ -23,6 +23,7 @@
   height: 68px;
   display: table-cell;
   font-family: "Tilt Neon";
+  color: white;
 }
 
 .settings-tab label:hover {
@@ -37,11 +38,12 @@
   position: absolute;
   top: 0;
   left: 286px;
-  background: #ffe7ba;
+  background-color: var(--baseColor);
   right: 0;
   bottom: 0;
   padding: 20px;
   border-radius: 8px;
+  border: 15px solid var(--itemBackgroundColor);
 }
 
 .settings-content span {
@@ -49,7 +51,7 @@
 }
 
 [type="radio"]:checked ~ label {
-  background: #ffe7ba;
+  background-color: var(--selectedTabColor);
   z-index: 2;
 }
 
