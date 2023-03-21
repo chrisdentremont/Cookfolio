@@ -42,7 +42,11 @@ body {
   color: white;
 }
 
-.nav-link:hover, .nav-link:active, .navbar-brand:hover, .navbar-brand:active{
+.navbar-brand:hover {
+  color: white;
+}
+
+.nav-link:hover, .nav-link:active{
   color: gray;
 }
 

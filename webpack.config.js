@@ -8,6 +8,7 @@ module.exports = {
     cookingsites: "./src/js/cookingsites.js",
     ingredients: "./src/js/ingredients.js",
     settings: "./src/js/settings.js",
+    firebase: "./src/js/firebase.js",
   },
   output: {
     path: path.resolve(__dirname, "dist/bundles"),
