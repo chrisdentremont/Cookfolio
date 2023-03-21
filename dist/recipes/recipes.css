@@ -33,15 +33,6 @@ label {
     font-family: "Tilt Neon";
 }
 
-.modal-header, .modal-footer {
-    background-color: #02111B;
-    color: white;
-}
-
-.modal-body {
-    background-color: white;
-}
-
 form{
     display: flex;
     flex-wrap: wrap;

@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="bundles/firebase.bundle.js"></script>
+        <script src="../bundles/firebase.bundle.js"></script>
         <script src="bundles/index.bundle.js"></script>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/login.css">
@@ -20,46 +20,66 @@
                 <div class="row mb-3">
                     <div class="col-auto">
                         <label for="firstName" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="firstName" aria-describedby="firstName">
+                        <input type="text" class="form-control" id="firstName" aria-describedby="firstName" required>
+                        <div id="firstNameWarning" class="form-text"></div>
                     </div>
                     <div class="col-auto">
                         <label for="lastName" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="lastName" aria-describedby="lastName">
+                        <input type="text" class="form-control" id="lastName" aria-describedby="lastName" required>
+                        <div id="lastNameWarning" class="form-text"></div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="InputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" required>
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
                     <label for="InputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="InputPassword1">
+                    <input type="password" class="form-control" id="InputPassword1" required>
                 </div>
                 <div class="mb-3">
                     <label for="InputPassword2" class="form-label">Re-enter password</label>
-                    <input type="password" class="form-control" id="InputPassword2">
+                    <input type="password" class="form-control" id="InputPassword2" required>
+                    <div id="passwordWarning" class="form-text"></div>
                 </div>
                 <button type="submit" class="btn btn-success mb-3">Sign Up</button>
 
-                <p>Already have an account? <span class="link" onclick="EntryPoint.switchForms()">Log In</span></p>
+                <p>Already have an account? <span class="link" onclick="Index.switchForms()">Log In</span></p>
             </form>
 
             <form action="" class="hidden" id="loginForm">
                 <div class="mb-3">
                     <label for="loginEmail" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3">
                     <label for="loginPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="loginPassword">
+                    <input type="password" class="form-control" id="loginPassword" required>
                 </div>
                 <button type="submit" class="btn btn-success mb-3">Log In</button>
 
-                <p>Don't have an account? <span class="link" onclick="EntryPoint.switchForms()">Sign Up</span></p>
+                <p>Don't have an account? <span class="link" onclick="Index.switchForms()">Sign Up</span></p>
             </form>
             <a class="link" href="recipes/">Go to recipes</a>
         </section>
+
+        <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Sign up</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" id="recipeFormClose"
+                    aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h4 id="signUpModalText" style="font-family: 'Roboto Mono';"></h4>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
     </body>
 
 </html>

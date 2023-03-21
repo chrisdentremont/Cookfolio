@@ -3,18 +3,18 @@ const path = require("path");
 module.exports = {
   mode: "development",
   entry: {
-    index: "./src/js/index.js",
-    recipes: "./src/js/recipes.js",
-    cookingsites: "./src/js/cookingsites.js",
-    ingredients: "./src/js/ingredients.js",
-    settings: "./src/js/settings.js",
-    firebase: "./src/js/firebase.js",
+    Index: "./src/js/index.js",
+    Recipes: "./src/js/recipes.js",
+    Cookingsites: "./src/js/cookingsites.js",
+    Ingredients: "./src/js/ingredients.js",
+    Settings: "./src/js/settings.js",
+    Firebase: "./src/js/firebase.js",
   },
   output: {
     path: path.resolve(__dirname, "dist/bundles"),
     filename: "[name].bundle.js",
     libraryTarget: "var",
-    library: "EntryPoint",
+    library: "[name]",
   },
   watch: true,
   module: {

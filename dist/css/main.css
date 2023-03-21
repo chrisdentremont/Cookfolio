@@ -48,6 +48,7 @@ body {
 
 .nav-link:hover, .nav-link:active{
   color: gray;
+  cursor: pointer;
 }
 
 i {
@@ -76,6 +77,14 @@ select, select option, .form-select {
   border: none;
 }
 
+.modal-header, .modal-footer {
+  background-color: #02111B;
+  color: white;
+}
+
+.modal-body {
+  background-color: white;
+}
 
 
 

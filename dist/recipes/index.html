@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../bundles/firebase.bundle.js"></script>
     <script src="../bundles/recipes.bundle.js"></script>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="recipes.css">
@@ -36,6 +37,9 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="../accountsettings"><i
                   class="bi bi-gear-fill"></i>Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" onclick="Firebase.logOut()"><i class="bi bi-door-open-fill"></i>Logout</a>
             </li>
           </ul>
         </div>
