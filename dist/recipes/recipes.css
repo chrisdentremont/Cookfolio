@@ -25,6 +25,16 @@
     margin: 1% 1% 1% 1%;
 }
 
+.btn-danger {
+    margin-left: 10px;
+    background-color: rgb(192, 71, 71);
+}
+
+.btn-danger:hover {
+    transition: 0.3s;
+    background-color: rgb(119, 47, 47);
+}
+
 select, input {
     font-family: "Roboto Mono";
 }

@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signOut  } from "firebase/auth";
-import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, getDoc, deleteField } from "firebase/firestore";
 import { displayRecipes } from "./recipes";
 
 let recipes;
@@ -46,6 +46,8 @@ onAuthStateChanged(auth, (user) => {
       displayRecipes(res.data());
     })
   }
+
+  
 });
 
 /**
@@ -108,4 +110,34 @@ function logOut(){
   });
 }
 
-export {createUser, signIn, logOut};
+async function addRecipeToDb(recipe){
+  let randomID = parseInt(Math.random() * 100000, 10);
+  let newRecipe = {
+    [randomID]: recipe
+  };
+  var recipes = {
+    recipes: newRecipe
+  };
+  await setDoc(doc(db, "users", auth.currentUser.uid), recipes, {merge: true}).then(function() {
+    getDoc(doc(db, "users", auth.currentUser.uid)).then((res) => {
+      displayRecipes(res.data());
+    })
+  });
+}
+
+async function delRecipeFromDb(recipeID){
+  let newRecipe = {
+    [recipeID]: deleteField()
+  };
+  var recipes = {
+    recipes: newRecipe
+  };
+
+  await setDoc(doc(db, "users", auth.currentUser.uid), recipes, {merge: true}).then(function() {
+    getDoc(doc(db, "users", auth.currentUser.uid)).then((res) => {
+      displayRecipes(res.data());
+    })
+  });
+}
+
+export {createUser, signIn, logOut, addRecipeToDb, delRecipeFromDb};
