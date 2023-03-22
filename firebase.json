@@ -5,6 +5,6 @@
   },
 
   "hosting": {
-    "public": "dist"
+    "public": "./dist"
   }
 }
