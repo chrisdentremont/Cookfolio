@@ -69,6 +69,7 @@ function addRecipe(event){
     let cardText = document.createElement("p");
     cardText.classList.add("card-text");
     cardText.textContent = formData[3].value;
+    
     let cardButton = document.createElement("a");
     cardButton.classList.add("btn", "btn-success");
     cardButton.textContent = "Open Recipe";

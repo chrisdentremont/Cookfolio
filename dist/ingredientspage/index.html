@@ -50,8 +50,8 @@
         </nav>
 
         <div id="ingredient-controls">
-            <button type="button" class="btn btn-success" onclick="EntryPoint.addIngredient()"
-                style="width:10%; font-size: 14px;">Add Ingredients</button>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ingredientModal"
+                style="width:10%;">Add Ingredient</button>
 
             <div id="checkboxes">
                 <label>Show Only:</label>
@@ -73,21 +73,78 @@
         </div>
 
         <div id="ingredient-section">
-            <div class="section">
-                <h1>Produce</h1>
-                <div class="section-body">
-                    <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">Lettuce
-                            <span class="badge bg-primary rounded-pill">2</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">Tomato<span
-                                class="badge bg-primary rounded-pill">2</span></li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">Potato<span
-                                class="badge bg-primary rounded-pill">5</span></li>
-                    </ul>
-                </div>
+            <div class="category-section" id="produce-section" hidden>
+                <h1 id="category-title">Produce</h1>
+                
+            </div>
+
+            <div class="category-section" id="dairy-section" hidden>
+                <h1 id="category-title">Dairy</h1>
+
+            </div>
+
+            <div class="category-section" id="protein-section" hidden>
+                <h1 id="category-title">Protein</h1>
+
+            </div>
+
+            <div class="category-section" id="starchy_foods-section" hidden>
+                <h1 id="category-title">Starchy Foods</h1>
+
             </div>
         </div>
+
+        <div class="modal fade" id="ingredientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Add a new ingredient</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" id="ingredientFormClose"
+                    aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form class="row g-3" id="ingredientForm">
+                    <div class="col-md-12">
+                      <label for="ingredientName" class="form-label">Ingredient name</label>
+                      <input type="text" class="form-control mb-3" id="ingredientName" required>
+                    </div>
+      
+      
+                    <div class="col-md-7">
+                      <label for="ingredientType" class="form-label">Ingredient group</label>
+                      <select id="ingredientType" class="form-select">
+                        <option value="produce">Produce</option>
+                        <option value="dairy">Dairy</option>
+                        <option value="protein">Protein</option>
+                        <option value="starchy_foods">Starchy Foods</option>
+                      </select>
+                    </div>
+      
+                    <div class="col-md-5">
+                      <label for="quantity" class="form-label">Quantity</label>
+                      <input type="number" class="form-control mb-3" id="quantity">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-success">Add ingredient</button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
     </body>
 
 </html>
+
+<!-- <div class="section-body">
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">Lettuce
+            <span class="badge bg-primary rounded-pill">2</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">Tomato<span
+                class="badge bg-primary rounded-pill">2</span></li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">Potato<span
+                class="badge bg-primary rounded-pill">5</span></li>
+    </ul>
+</div> -->
