@@ -12,6 +12,7 @@ let signUpModalText;
 let passwordWarning;
 let firstNameWarning;
 let lastNameWarning;
+let loginPassWarning;
 
 window.onload = function(){
   logInForm = document.getElementById("loginForm");
@@ -24,6 +25,7 @@ window.onload = function(){
   passwordWarning = document.getElementById("passwordWarning");
   firstNameWarning = document.getElementById("firstNameWarning");
   lastNameWarning = document.getElementById("lastNameWarning");
+  loginPassWarning = document.getElementById("passwordError");
 
   logInForm.addEventListener("submit", logIn);
   signUpForm.addEventListener("submit", signUp);
@@ -119,4 +121,4 @@ function forgotPassword() {
   
 }
 
-export { switchForms, forgotPassword };
+export { switchForms, forgotPassword, loginPassWarning };

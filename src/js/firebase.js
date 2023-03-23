@@ -2,6 +2,8 @@ import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signOut  } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc, deleteField } from "firebase/firestore";
 import { displayRecipes } from "./recipes";
+import {displayIngredients} from "./ingredients";
+import { loginPassWarning } from "./index";
 
 let recipes;
 let ingredients;
@@ -30,13 +32,13 @@ onAuthStateChanged(auth, (user) => {
 
   if (user) {
     if(!notOnHomePage && user.emailVerified){
-      window.location.href = "/recipes";
+      window.location.href = "/dist/recipes";
     }else if(notOnHomePage && !user.emailVerified){
-      window.location.href = "/";
+      window.location.href = "/dist";
     }
   } else {
     if(notOnHomePage){
-      window.location.href = "/";
+      window.location.href = "/dist";
     }
   }
 
@@ -45,9 +47,11 @@ onAuthStateChanged(auth, (user) => {
     getDoc(doc(db, "users", user.uid)).then((res) => {
       displayRecipes(res.data());
     })
+  }else if(window.location.href.includes("ingredients")){
+    getDoc(doc(db, "users", user.uid)).then((res) => {
+      displayIngredients(res.data());
+    })
   }
-
-  
 });
 
 /**
@@ -66,28 +70,18 @@ function createUser(email, password, firstName, lastName, modal, modalText){
       modal.show(); 
       const user = cred.user;
       user.displayName = firstName + " " + lastName;
-    });
 
-    //User settings
-    var userInfo = {
+      //User settings
+      var userInfo = {
       userSettings: {},
-      recipes: {
-        recipe19342: {
-          name: "chicken",
-          time: 30,
-          notes: "chicken notes",
-        }
-      },
-      ingredients: {
-        ingredient39384: {
-          name: "pineapple slices",
-          quantity: 3,
-          category: "fruits and vegetables",
-        }
-      },
-    };
-    setDoc(doc(db, "users", cred.user.uid), userInfo);
-    signOut(auth);
+      recipes: {},
+      ingredients: {},
+      name: cred.user.displayName,
+      };
+      setDoc(doc(db, "users", cred.user.uid), userInfo).then(() => {
+        signOut(auth);
+      });
+    });
   }).catch((e) => {
     modalText.textContent = e.message;
     modal.show();
@@ -97,16 +91,21 @@ function createUser(email, password, firstName, lastName, modal, modalText){
 function signIn(email, password){
   signInWithEmailAndPassword(auth, email, password).then((cred) => {
     const user = cred.user;
+    return "good";
   }).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode + " - " + errorMessage);
+    if(loginPassWarning.firstChild) {loginPassWarning.removeChild(loginPassWarning.firstChild);}
+
+    let loginPassWarningText = document.createElement("span");
+    loginPassWarningText.classList.add("warning-text");
+    loginPassWarningText.textContent = "Incorrect email or password.";
+
+    loginPassWarning.appendChild(loginPassWarningText);
   });
 }
 
 function logOut(){
   signOut(auth).then(() => {
-    window.location.href = "/";
+    window.location.href = "/dist";
   });
 }
 
@@ -140,4 +139,23 @@ async function delRecipeFromDb(recipeID){
   });
 }
 
-export {createUser, signIn, logOut, addRecipeToDb, delRecipeFromDb};
+async function addIngredientToDb(ingredient){
+  let randomID = parseInt(Math.random() * 100000, 10);
+  let newIngredient = {
+    [randomID]: ingredient
+  };
+  var ingredients = {
+    ingredients: newIngredient
+  };
+  await setDoc(doc(db, "users", auth.currentUser.uid), ingredients, {merge: true}).then(function() {
+    getDoc(doc(db, "users", auth.currentUser.uid)).then((res) => {
+      displayIngredients(res.data());
+    })
+  });
+}
+
+async function delIngredientFromDb(ingredientID){
+
+}
+
+export {createUser, signIn, logOut, addRecipeToDb, delRecipeFromDb, addIngredientToDb, delIngredientFromDb};
