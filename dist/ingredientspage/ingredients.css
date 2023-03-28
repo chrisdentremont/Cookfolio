@@ -16,15 +16,15 @@ select, input {
 }
 
 #checkboxes{
-    width: 35%;
     font-size: 18px;
-    margin: 7px -30px 0px 10px;
     color: white;
+    width:50%; 
+    margin-right:1%;
 }
 
 #ingredient-section *{
     margin-right: 1%;
-}
+} 
 
 .category-section {
     margin: 1% 20% 0% 5%;
@@ -35,14 +35,29 @@ select, input {
     color: white;
 }
 
-.section-body .list-group{
+.list-group{
     width: 100%;
     font-size: 20px;
     
 }
 
-.section-body .list-group-item{
+.list-group-item{
     color: black;
     background-color: var(--baseColor);
+}
+
+.list-group-item .badge {
+    margin-left: 15px;
+    margin-right: 20px;
+}
+
+.list-group-item .temp-div{
+    width: 100%;
+    text-align: right;
+}
+
+.temp-div button{
+    border: none;
+    background-color: transparent;
 }
 
