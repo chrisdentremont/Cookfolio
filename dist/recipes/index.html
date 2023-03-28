@@ -82,10 +82,10 @@
               <div class="col-md-7">
                 <label for="recipeType" class="form-label">Recipe type</label>
                 <select id="recipeType" class="form-select">
-                  <option value="breakfast">Breakfast</option>
-                  <option value="lunch">Lunch</option>
-                  <option value="dinner">Dinner</option>
-                  <option value="snack">Snack</option>
+                  <option value="Breakfast">Breakfast</option>
+                  <option value="Lunch">Lunch</option>
+                  <option value="Dinner">Dinner</option>
+                  <option value="Snack">Snack</option>
                 </select>
               </div>
 
@@ -105,6 +105,28 @@
             <button type="submit" class="btn btn-success">Add recipe</button>
           </div>
           </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="viewRecipeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="viewRecipeHeader">View recipe</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" id="viewRecipeFormClose"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h2 id="viewRecipeName" class="mb-3">Name</h2>
+            <p id="viewRecipeNotes" class="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            
+            <i class="bi bi-stopwatch-fill mb-3"><span id="viewRecipeTime">   25 minutes</span></i>
+            <i class="bi bi-folder-fill mb-3"><span id="viewRecipeType">   Dinner</span></i>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>

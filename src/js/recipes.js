@@ -2,6 +2,8 @@ import "../../dist/scss/styles.scss";
 import * as bootstrap from "bootstrap";
 import {addRecipeToDb, delRecipeFromDb} from "./firebase";
 
+let storedRecipes = {};
+
 window.onload = () => {
     const recipeForm = document.getElementById("recipeForm");
     recipeForm.addEventListener("submit", addRecipe);
@@ -15,6 +17,8 @@ function displayRecipes(recipes){
 
     let recipeInfo = recipes["recipes"];
     for(var recipe in recipeInfo){
+        storedRecipes[recipe] = recipeInfo[recipe];
+
         //Card
         let newCard = document.createElement("div");
         newCard.classList.add("card", "card-" + recipe);
@@ -27,12 +31,10 @@ function displayRecipes(recipes){
         cardTitle.classList.add("card-title");
         cardTitle.textContent = recipeInfo[recipe]["name"];
 
-        let cardText = document.createElement("p");
-        cardText.classList.add("card-text");
-        cardText.textContent = recipeInfo[recipe]["notes"];
-
         let cardAddButton = document.createElement("a");
         cardAddButton.classList.add("btn", "btn-success");
+        cardAddButton.setAttribute("id", "viewCard-" + recipe)
+        cardAddButton.addEventListener("click", function(){viewRecipe(this.id)});
         cardAddButton.textContent = "Open Recipe";
 
         let cardDelButton = document.createElement("a");
@@ -41,7 +43,6 @@ function displayRecipes(recipes){
         cardDelButton.addEventListener("click", deleteRecipe);
 
         cardBody.appendChild(cardTitle);
-        cardBody.appendChild(cardText);
         cardBody.appendChild(cardAddButton);
         cardBody.appendChild(cardDelButton);
         newCard.appendChild(cardBody);
@@ -70,6 +71,22 @@ function addRecipe(event){
 function deleteRecipe(event){
     var cardID = event.target.classList[2].substring(5);
     delRecipeFromDb(cardID);
+}
+
+function viewRecipe(cardID){
+    let IDnumber = cardID.substring(9);
+    let viewRecipeModal = new bootstrap.Modal(document.getElementById('viewRecipeModal'));
+    let viewRecipeName = document.getElementById("viewRecipeName");
+    let viewRecipeNotes = document.getElementById("viewRecipeNotes");
+    let viewRecipeTime = document.getElementById("viewRecipeTime");
+    let viewRecipeType = document.getElementById("viewRecipeType");
+
+    viewRecipeName.textContent = storedRecipes[IDnumber]["name"];
+    viewRecipeNotes.textContent = storedRecipes[IDnumber]["notes"];
+    viewRecipeTime.textContent = "   " + storedRecipes[IDnumber]["time"] + " minutes";
+    viewRecipeType.textContent = "   " + storedRecipes[IDnumber]["type"];
+
+    viewRecipeModal.show();
 }
 
 
