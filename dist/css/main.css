@@ -86,6 +86,10 @@ select, select option, .form-select {
   background-color: white;
 }
 
+small {
+  font-size: 24px;
+}
+
 
 
 

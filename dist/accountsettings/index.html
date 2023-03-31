@@ -45,87 +45,78 @@
           </div>
         </div>
       </nav>
-    
-      <div class="settings-tabs">
-    
-        <div class="settings-tab">
-          <input type="radio" id="tab-1" name="tab-group-1" checked>
-          <label for="tab-1">General</label>
-    
-          <div class="settings-content">
-            <span>Username</span>
-            <input type="text" placeholder="" required />
-            <br>
-            <br>
-            <span>Name</span>
-            <input type="text" placeholder="" required />
-            <br>
-            <br>
-            <span>Email</span>
-            <input type="email" placeholder="" required />
-          </div>
-        </div>
-    
-        <div class="settings-tab">
-          <input type="radio" id="tab-2" name="tab-group-1">
-          <label for="tab-2">Change Password</label>
-    
-          <div class="settings-content">
-            <span>New Password</span>
-            <input type="text" placeholder="" required />
-            <br>
-            <br>
-            <span>Reconfirm New Password</span>
-            <input type="text" placeholder="" required />
-          </div>
-        </div>
-    
-        <div class="settings-tab">
-          <input type="radio" id="tab-3" name="tab-group-1">
-          <label for="tab-3">Update Email</label>
-    
-          <div class="settings-content">
-            <span>New Email</span>
-            <input type="email" placeholder="" required />
-            <br>
-            <br>
-            <span>Reconfirm Updated Email</span>
-            <input type="email" placeholder="" required />
+
+
+      <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link settings-tab active" data-bs-toggle="pill" data-bs-target="#v-pills-home">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile">About</a>
+        </li>
+      </ul>
+
+      <div class="d-flex align-items-center" id="settingsTabs">
+        <div class="tab-content container" id="v-pills-tabContent">
+          <div class="tab-pane fade show active row" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <h1 class="mb-3">Change Email</h1>
+            <input type="text" class="form-control" placeholder="Enter new email" aria-describedby="basic-addon2">
+            <div id="emailHelp" class="form-text mb-3">An email will be sent to the new email to confirm the change.</div>
+  
+            <button class="btn btn-primary" id="basic-addon2">Change Email</button>
+
+            <hr />
+
+            <h1 class="mb-3">Change Password</h1>
+              <input type="text" class="form-control mb-3" placeholder="Enter new password">
+              <input type="text" class="form-control mb-3" placeholder="Confirm new password">
+              <button class="btn btn-primary" id="basic-addon2">Change Password</button>
+
+            <hr />
+
+            <h1 class="mb-3">Delete Account</h1>
+            <p style="font-family: 'Tilt Neon';">WARNING! This will delete all of your data and you will not be able to get it back.</p>
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">Delete Account</button>
           </div>
 
-          
-        </div>
-        <div class="settings-tab">
-          <input type="radio" id="tab-4" name="tab-group-1">
-          <label for="tab-4">Edit Recipes</label>
-    
-          <div class="settings-content">
-            <span></span>
+          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <h1>Cookfolio</h1>
+            <small class="text-muted"> created by <a href="https://chrisdentremont.net/" target="_blank">Chris D'Entremont</a>, 
+              <a href="https://github.com/madeiragatwit" target="_blank">Gabriel Madeira</a> and 
+              <a href="www.linkedin.com/in/yuliyasmilyanova" target="_blank">Yuliya Smilyanova</a></small>
           </div>
+          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
         </div>
-    
-        <div class="settings-tab">
-          <input type="radio" id="tab-5" name="tab-group-1">
-          <label for="tab-5">Edit Ingridients</label>
-    
-          <div class="settings-content">
-            <span></span>
-          </div>
-        </div>
-    
-        <div class="settings-tab">
-          <input type="radio" id="tab-6" name="tab-group-1">
-          <label for="tab-6">Delete Profile</label>
-    
-          <div class="settings-content">
-            <span></span>
-          </div>
-        </div>
-
-        <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
-        <button type="button" class="btn btn-cancel">Cancel</button>
-    
       </div>
-    
+
+      <div class="modal fade" id="deleteAccountModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="deleteAccountHeader">Delete account</h1>
+            </div>
+            <div class="modal-body">
+              <p style="font-family: 'Tilt Neon';">Are you sure you want to delete your account? You will not be able to get your data back and will have to create a new account.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="width:70%;">Yes, I want to delete my account</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <strong class="me-auto">Cookfolio</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            
+          </div>
+        </div>
+      </div>
     </body>
 </html>

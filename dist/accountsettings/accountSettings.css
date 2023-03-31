@@ -1,60 +1,59 @@
-.settings-tabs {
-  position: relative;
-  min-height: 360px;
-  clear: both;
-  margin: 8%;
+#settingsTabs{
+  margin: auto;
 }
 
-.settings-tab {
-  float: left;
-  clear: both;
-  width: 286px;
-}
-
-.settings-tab label {
-  background-color: var(--itemBackgroundColor);
-  padding: 10px;
-  margin-left: -1px;
-  font-size: 21px;
-  vertical-align: middle;
-  position: relative;
-  left: 1px;
-  width: 264px;
-  height: 68px;
-  display: table-cell;
-  font-family: "Tilt Neon";
+.nav-pills a{
   color: white;
+  background-color: var(--selectedTabColor);
+  font-family: "Tilt Neon";
+  font-size: 30px;
+  text-decoration: none;
+  padding: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+  border-radius: 5px;
 }
 
-.settings-tab label:hover {
-  cursor: pointer;
-}
-
-.settings-tab [type="radio"] {
-  display: none;
-}
-
-.settings-content {
-  position: absolute;
-  top: 0;
-  left: 286px;
+.tab-content {
   background-color: var(--baseColor);
-  right: 0;
-  bottom: 0;
-  padding: 20px;
+  padding: 5%;
   border-radius: 8px;
   border: 15px solid var(--itemBackgroundColor);
 }
 
-.settings-content span {
-  animation: 0.5s ease-out 0s 1 slideInFromTop;
+.nav-tabs {
+  margin-top: 5%;
+  border-bottom: 0px;
 }
 
-[type="radio"]:checked ~ label {
-  background-color: var(--selectedTabColor);
-  z-index: 2;
+.settings-tab {
+  font-family: "Tilt Neon";
 }
 
-[type="radio"]:checked ~ label ~ .settings-content {
-  z-index: 1;
+.settings-tab:hover {
+  color: black;
+  border: 1px solid var(--baseColor);
+}
+
+.btn {
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+.btn-danger {
+  background-color: rgb(159, 38, 38);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: rgb(209, 64, 64);
+}
+
+.toast-header {
+  background-color: var(--itemBackgroundColor);
+  color: white;
+}
+
+.toast-body {
+  opacity: 100;
 }
