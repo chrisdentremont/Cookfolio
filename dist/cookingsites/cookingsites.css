@@ -31,3 +31,8 @@
 .list-group table td:last-child p {
     margin-left: 30px;
 }
+
+a {
+    color: black;
+    text-decoration: none
+}
