@@ -192,7 +192,6 @@ function displaySection(checkboxID) {
     const currentCheckBox = document.getElementById(checkboxID);
     
     let tempString = checkboxID.substring(0,checkboxID.indexOf("C"));
-    console.log(tempString);
     const section = document.getElementById(tempString + "-section");
 
     if(checkboxID == "viewAllCheck"){
@@ -237,7 +236,6 @@ function changeToEdit(ingredientId){
     currentlyEditing = ingredientId;
     isEditing = true;
     const ingredient = storedIngredients[ingredientId];
-    console.log(ingredient);
     document.getElementById("exampleModalLabel").innerHTML = "Edit an ingredient";
     document.getElementById("ingredientNameBox").setAttribute("value", ingredient["name"]);
     document.getElementById("ingredientType").value = ingredient["category"];
