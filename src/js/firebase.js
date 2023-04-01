@@ -173,14 +173,23 @@ async function delRecipeFromDb(recipeID){
  * 
  * @param {*} ingredient Object containing ingredient information to be added
  */
-async function addIngredientToDb(ingredient){
-  let randomID = parseInt(Math.random() * 100000, 10); //Generates a random ID number to assign to the new ingredient
-  let newIngredient = {
-    [randomID]: ingredient
-  };
+async function addIngredientToDb(ingredient, recipeID){
+  let newIngredient;
+  if(recipeID != ""){
+    newIngredient = {
+      [recipeID]: ingredient
+    };
+  }else{
+    let randomID = parseInt(Math.random() * 100000, 10); //Generates a random ID number to assign to the new ingredient
+    newIngredient = {
+      [randomID]: ingredient
+    };
+  }
+  
   var ingredients = {
     ingredients: newIngredient
   };
+
   await setDoc(doc(db, "users", auth.currentUser.uid), ingredients, {merge: true}).then(function() {
     getDoc(doc(db, "users", auth.currentUser.uid)).then((res) => {
       displayIngredients(res.data()); //Re-display user's ingredients once the recipe is removed

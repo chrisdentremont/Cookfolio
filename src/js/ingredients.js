@@ -2,9 +2,18 @@ import "../../dist/scss/styles.scss";
 import * as bootstrap from "bootstrap";
 import {addIngredientToDb, delIngredientFromDb} from "./firebase";
 
-///
-///TODO
-///
+let isEditing = false;
+let currentlyEditing = "";
+
+
+/**
+ * TODO
+ */
+let storedIngredients = {};
+
+/**
+ * TODO
+ */
 window.onload = () => {
     const ingredientForm = document.getElementById("ingredientForm");
     ingredientForm.addEventListener("submit", addIngredient);
@@ -22,12 +31,16 @@ window.onload = () => {
     starchyCheckBox.addEventListener("click", function(){displaySection(this.id)});
 
     const seeAllCheckbox = document.getElementById("viewAllCheck");
-    seeAllCheckbox.addEventListener("click", function(){displaySection(this.id)})
+    seeAllCheckbox.addEventListener("click", function(){displaySection(this.id)});
+
+    const changeIngredientAddForm = document.getElementById("addIngredientButton");
+    changeIngredientAddForm.addEventListener("click", changeToAdd);
 };
 
-///
-///TODO
-///
+/**
+ * TODO
+ * @param {*} event 
+ */
 function addIngredient(event){
     event.preventDefault();
     let formData = event.target.elements;
@@ -38,14 +51,20 @@ function addIngredient(event){
         quantity: formData[2].value
     };
 
-    addIngredientToDb(newIngredient);
+    if(isEditing){
+        addIngredientToDb(newIngredient, currentlyEditing);
+    }else{
+        addIngredientToDb(newIngredient, "");
+    }
+    
 
     document.getElementById("ingredientFormClose").click();
     event.target.reset();
 }
-///
-///TODO
-///
+/**
+ * TODO
+ * @param {*} ingredients 
+ */
 function displayIngredients(ingredients) {
     const sections = document.querySelectorAll(".category-section");
     for(let i = 0; i < sections.length; i++){
@@ -74,6 +93,8 @@ function displayIngredients(ingredients) {
 
     let ingredientInfo = ingredients["ingredients"];
     for(var ingredient in ingredientInfo){
+        storedIngredients[ingredient] = ingredientInfo[ingredient];
+
         let categoryName = ingredientInfo[ingredient]["category"].toLowerCase();
         const category = document.getElementById(categoryName + "-section");
 
@@ -81,6 +102,7 @@ function displayIngredients(ingredients) {
         
         let categoryListItem = document.createElement("li");
         categoryListItem.classList.add("list-group-item", "d-flex","align-items-center");
+        categoryListItem.setAttribute("id", ingredient);
 
 
         if(categoryList == null){
@@ -116,13 +138,19 @@ function displayIngredients(ingredients) {
 
         //Edit Button Creation
         let editButton = document.createElement("button");
-        editButton.classList.add("edit-button");
+        editButton.setAttribute("type","button");
+        editButton.classList.add("btn","btn-success");
+        editButton.setAttribute("data-bs-toggle","modal");
+        editButton.setAttribute("data-bs-target","#ingredientModal");
+        editButton.setAttribute("id","editIngredientButton");
 
         let editIcon = document.createElement("i");
         editIcon.classList.add("bi", "bi-pencil-fill");
         editIcon.setAttribute("height", "15");
         editIcon.setAttribute("width", "15");
         editButton.appendChild(editIcon);
+
+        editButton.addEventListener("click", function(){changeToEdit(this.parentElement.parentElement.id)});
 
         tempDiv.appendChild(editButton);
 
@@ -147,9 +175,10 @@ function displayIngredients(ingredients) {
     }
 }
 
-///
-///TODO
-///
+/**
+ * TODO
+ * @param {*} checkboxID 
+ */
 function displaySection(checkboxID) {
     const currentCheckBox = document.getElementById(checkboxID);
     
@@ -189,4 +218,31 @@ function displaySection(checkboxID) {
     }
 }
 
-export {addIngredient, displayIngredients, displaySection};
+/**
+ * TODO
+ * @param {*} ingredientId 
+ */
+function changeToEdit(ingredientId){
+    currentlyEditing = ingredientId;
+    isEditing = true;
+    const ingredient = storedIngredients[ingredientId];
+    console.log(ingredient);
+    document.getElementById("exampleModalLabel").innerHTML = "Edit an ingredient";
+    document.getElementById("ingredientNameBox").setAttribute("value", ingredient["name"]);
+    document.getElementById("ingredientType").value = ingredient["category"];
+    document.getElementById("quantity").setAttribute("value", ingredient["quantity"]);
+    document.getElementById("ingredientFormSubmit").innerHTML = "Save";
+}
+/**
+ * TODO
+ */
+function changeToAdd(){
+    isEditing = false;
+    document.getElementById("exampleModalLabel").innerHTML = "Add a new ingredient";
+    document.getElementById("ingredientNameBox").setAttribute("value", "");
+    document.getElementById("ingredientType").value = "produce";
+    document.getElementById("quantity").setAttribute("value","");
+    document.getElementById("ingredientFormSubmit").innerHTML = "Add Ingredient";
+}
+
+export {addIngredient, displayIngredients, displaySection, changeToEdit, changeToAdd};
