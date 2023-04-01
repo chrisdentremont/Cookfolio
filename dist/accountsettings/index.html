@@ -1,122 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="../bundles/firebase.bundle.js"></script>
-        <script src="../bundles/settings.bundle.js"></script>
-        <link rel="stylesheet" href="../css/main.css">
-        <link rel="stylesheet" href="accountSettings.css">
-        <title>Cookfolio - Settings</title>
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../bundles/firebase.bundle.js"></script>
+    <script src="../bundles/settings.bundle.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="accountSettings.css">
+    <title>Cookfolio - Settings</title>
+  </head>
 
-    <body>
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand">Cookfolio</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../recipes"><i class="bi bi-book-fill"></i>Recipes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../ingredientspage"><i
-                    class="bi bi-egg-fill"></i>Ingredients</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../cookingsites"><i class="bi bi-laptop-fill"></i>Sites</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav mb-2 mb-lg-0" style="margin-right: 5%;">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../accountsettings"><i
-                    class="bi bi-gear-fill"></i>Settings</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" onclick="Firebase.logOut()"><i class="bi bi-door-open-fill"></i>Logout</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-
-      <ul class="nav nav-tabs justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link settings-tab active" data-bs-toggle="pill" data-bs-target="#v-pills-home">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile">About</a>
-        </li>
-      </ul>
-
-      <div class="d-flex align-items-center" id="settingsTabs">
-        <div class="tab-content container" id="v-pills-tabContent">
-          <div class="tab-pane fade show active row" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-            <h1 class="mb-3">Change Email</h1>
-            <input type="text" class="form-control" placeholder="Enter new email" aria-describedby="basic-addon2">
-            <div id="emailHelp" class="form-text mb-3">An email will be sent to the new email to confirm the change.</div>
-  
-            <button class="btn btn-primary" id="basic-addon2">Change Email</button>
-
-            <hr />
-
-            <h1 class="mb-3">Change Password</h1>
-              <input type="text" class="form-control mb-3" placeholder="Enter new password">
-              <input type="text" class="form-control mb-3" placeholder="Confirm new password">
-              <button class="btn btn-primary" id="basic-addon2">Change Password</button>
-
-            <hr />
-
-            <h1 class="mb-3">Delete Account</h1>
-            <p style="font-family: 'Tilt Neon';">WARNING! This will delete all of your data and you will not be able to get it back.</p>
-            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">Delete Account</button>
-          </div>
-
-          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-            <h1>Cookfolio</h1>
-            <small class="text-muted"> created by <a href="https://chrisdentremont.net/" target="_blank">Chris D'Entremont</a>, 
-              <a href="https://github.com/madeiragatwit" target="_blank">Gabriel Madeira</a> and 
-              <a href="www.linkedin.com/in/yuliyasmilyanova" target="_blank">Yuliya Smilyanova</a></small>
-          </div>
-          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand">Cookfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../recipes"><i class="bi bi-book-fill"></i>Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../ingredientspage"><i
+                  class="bi bi-egg-fill"></i>Ingredients</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../cookingsites"><i class="bi bi-laptop-fill"></i>Sites</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0" style="margin-right: 5%;">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../accountsettings"><i
+                  class="bi bi-gear-fill"></i>Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" onclick="Firebase.logOut()"><i
+                  class="bi bi-door-open-fill"></i>Logout</a>
+            </li>
+          </ul>
         </div>
       </div>
+    </nav>
 
-      <div class="modal fade" id="deleteAccountModal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="deleteAccountHeader">Delete account</h1>
-            </div>
-            <div class="modal-body">
-              <p style="font-family: 'Tilt Neon';">Are you sure you want to delete your account? You will not be able to get your data back and will have to create a new account.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="width:70%;">Yes, I want to delete my account</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+
+    <ul class="nav nav-tabs justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link settings-tab active" data-bs-toggle="pill" data-bs-target="#v-pills-home">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile">About</a>
+      </li>
+    </ul>
+
+    <div class="d-flex align-items-center" id="settingsTabs">
+      <div class="tab-content container" id="v-pills-tabContent">
+        <div class="tab-pane fade show active row" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+          <h1 class="mb-3">Change Email</h1>
+          <input type="email" id="newEmail" class="form-control" placeholder="Enter new email"
+            aria-describedby="basic-addon2">
+          <div id="emailHelp" class="form-text">An email will be sent to the new email to confirm the change.</div>
+          <div id="emailWarning" class="form-text mb-3"></div>
+
+          <button class="btn btn-primary" id="basic-addon2" onclick="Settings.changeEmail()">Change Email</button>
+
+          <hr />
+
+          <h1 class="mb-3">Change Password</h1>
+          <input type="password" class="form-control mb-3" id="changePassword1" placeholder="Enter new password">
+          <input type="password" class="form-control" id="changePassword2" placeholder="Confirm new password">
+          <div id="passwordWarning" class="form-text mb-3"></div>
+          <button class="btn btn-primary" id="basic-addon2" onclick="Settings.changePassword()">Change Password</button>
+
+          <hr />
+
+          <h1 class="mb-3">Delete Account</h1>
+          <p style="font-family: 'Tilt Neon';">WARNING! This will delete all of your data and you will not be able to
+            get it back.</p>
+          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">Delete
+            Account</button>
+        </div>
+
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+          <h1>Cookfolio</h1>
+          <small class="text-muted"> created by <a href="https://chrisdentremont.net/" target="_blank">Chris
+              D'Entremont</a>,
+            <a href="https://github.com/madeiragatwit" target="_blank">Gabriel Madeira</a> and
+            <a href="www.linkedin.com/in/yuliyasmilyanova" target="_blank">Yuliya Smilyanova</a></small>
+        </div>
+        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...
+        </div>
+        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="deleteAccountModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="deleteAccountHeader">Delete account</h1>
+          </div>
+          <div class="modal-body">
+            <p style="font-family: 'Tilt Neon';">Are you sure you want to delete your account? You will not be able to
+              get your data back and will have to create a new account.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="width:70%;"
+              onclick="Firebase.deleteUserAccount()">Yes, I want to
+              delete my account</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
+    </div>
+  </body>
 
-      <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-          <div class="toast-header">
-            <strong class="me-auto">Cookfolio</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-          </div>
-          <div class="toast-body">
-            
-          </div>
-        </div>
-      </div>
-    </body>
 </html>

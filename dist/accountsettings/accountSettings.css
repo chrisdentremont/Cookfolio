@@ -1,8 +1,8 @@
-#settingsTabs{
+#settingsTabs {
   margin: auto;
 }
 
-.nav-pills a{
+.nav-pills a {
   color: white;
   background-color: var(--selectedTabColor);
   font-family: "Tilt Neon";
@@ -56,4 +56,14 @@
 
 .toast-body {
   opacity: 100;
+}
+
+.warning-text {
+  color: red;
+  font-size: 13px;
+}
+
+.success-text {
+  color: green;
+  font-size: 13px;
 }

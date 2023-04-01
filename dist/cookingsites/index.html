@@ -1,131 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="../bundles/firebase.bundle.js"></script>
-        <script src="../bundles/cookingsites.bundle.js"></script>
-        <link rel="stylesheet" href="../css/main.css">
-        <link rel="stylesheet" href="cookingSites.css">
-        <title>Cookfolio - Sites</title>
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../bundles/firebase.bundle.js"></script>
+    <script src="../bundles/cookingsites.bundle.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="cookingSites.css">
+    <title>Cookfolio - Sites</title>
+  </head>
 
-    <body>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-              <a class="navbar-brand">Cookfolio</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="../recipes"><i class="bi bi-book-fill"></i>Recipes</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="../ingredientspage"><i class="bi bi-egg-fill"></i>Ingredients</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../cookingsites"><i class="bi bi-laptop-fill"></i>Sites</a>
-                  </li>
-                </ul>
-                <ul class="navbar-nav mb-2 mb-lg-0" style="margin-right: 5%;">
-                    <li class="nav-item">
-                      <a class="nav-link" aria-current="page" href="../accountsettings"><i class="bi bi-gear-fill"></i>Settings</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" aria-current="page" onclick="Firebase.logOut()"><i class="bi bi-door-open-fill"></i>Logout</a>
-                    </li>
-                  </ul>
-              </div>
-            </div>
-          </nav>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand">Cookfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../recipes"><i class="bi bi-book-fill"></i>Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../ingredientspage"><i
+                  class="bi bi-egg-fill"></i>Ingredients</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../cookingsites"><i class="bi bi-laptop-fill"></i>Sites</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0" style="margin-right: 5%;">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../accountsettings"><i
+                  class="bi bi-gear-fill"></i>Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" onclick="Firebase.logOut()"><i
+                  class="bi bi-door-open-fill"></i>Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-          <div id="cooking-sites">
-            <h1>Cooking Sites to Check Out!</h1>
-            <ul class="list-group list-group-flush d-flex justify-content-between">
-              <li class="list-group-item">
-                <table> 
-                  <tr>
-                    <td>
-                      <img src="../images/reluctant-gourmet-logo.jpg" height="130" width="130">
-                    </td>
-                    <td>
-                      <h4><a href="https://www.reluctantgourmet.com/">The Reluctant Gourmet</a></h4>
-                      <p>The Reluctant Gourmet is a great website for learning how to cook online. It teaches you various cooking techniques. 
-                         It teaches you about baking, frying, roasting, sauces, grilling and so much more. The website also allows you to search
-                         for recipes based on meal types and learn about various ingredients used in culinary recipes.  
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-              </li>
-              <li class="list-group-item">
-                <table>
-                  <tr>
-                    <td>
-                      <img src="https://logodix.com/logo/1899686.jpg" height="130" width="130">
-                    </td>
-                    <td>
-                      <h4><a href="https://www.thekitchn.com/collection/cooking-school">Kitchn Cooking School</a></h4>
-                      <p>Kitchn Cooking School is a great website for learning the basics of how to get started in the kitchen. For 20 days, it contains 
-                         20 lessons to help prepare you on how to cook and get started in the kitchen. In addition to written instructions and directions, it also contains 
-                         videos which you can follow along to for each lesson. The website also allows you to browse and search various meals based on occasions, dish types,
-                         regional cuisines, view ingredients and find useful tips for kitchen essentials and how to keep it clean and organized.
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-              </li>
-              <li class="list-group-item">
-                <table>
-                  <tr>
-                    <td>
-                      <img src="https://www.seekpng.com/png/full/114-1148768_followpinterest-followusfacebook-followusinstagram-youtube-circle-logo-png.png" height="130" width="130">
-                    </td>
-                    <td>
-                      <h4><a href="https://www.youtube.com/">Youtube</a></h4>
-                      <p>Youtube has a ton of recipe video tutorials and even cooking channels dedicated to teaching others how to cook. Youtube is a 
-                         great website to use if you prefer a visual cue on how to get started with cooking. Simply search the meal or recipe which you want to make. 
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-              </li>
-              <li class="list-group-item">
-                <table>
-                  <tr>
-                    <td>
-                      <img src="https://www.budgetbytes.com/wp-content/uploads/2018/06/budgetbytes_logo.vFINALicon.white_.png" height="130" width="130">
-                    </td>
-                    <td>
-                      <h4><a href="https://www.budgetbytes.com/">Budget Bytes</a></h4>
-                      <p>Budget Bytes contains a variety of different cheap and afforadable meals and recipes which you can make. The website has a cost estimate and breaks down 
-                         the prices for each ingridient to see how much it would cost you. The website even allows you to tweak its servings so it suits your needs.
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-              </li>
-              <li class="list-group-item">
-                <table>
-                  <tr>
-                    <td>
-                      <img src="https://image.winudf.com/v2/image/c3VwZXJjb29rLnN1cGVyY29vay5zdXBlcmNvby5zdXBlcmNvX3NjcmVlbl8wXzE1MzY0NDg3MzNfMDM0/screen-0.jpg?fakeurl=1&type=.jpg" height="130" width="130">
-                    </td>
-                    <td>
-                      <h4><a href="https://www.supercook.com/#/desktop">SuperCook</a></h4>
-                      <p>SuperCook is a recipe search engine which lets you search for recipe and meals by ingridient which you have at home. It finds you recipes to use
-                         with as many of your ingridients as possible so nothing goes to watse.
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-              </li>
-            </ul>
-          </div>
-    </body>
+    <div id="cooking-sites">
+      <h1>Cooking Sites to Check Out!</h1>
+      <ul class="list-group list-group-flush d-flex justify-content-between">
+        <li class="list-group-item">
+          <table>
+            <tr>
+              <td>
+                <img src="../images/reluctant-gourmet-logo.jpg" height="130" width="130">
+              </td>
+              <td>
+                <h4><a href="https://www.reluctantgourmet.com/" target="_blank">The Reluctant Gourmet</a></h4>
+                <p>The Reluctant Gourmet is a great website for learning how to cook online. It teaches you various
+                  cooking techniques.
+                  It teaches you about baking, frying, roasting, sauces, grilling and so much more. The website also
+                  allows you to search
+                  for recipes based on meal types and learn about various ingredients used in culinary recipes.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </li>
+        <li class="list-group-item">
+          <table>
+            <tr>
+              <td>
+                <img src="https://logodix.com/logo/1899686.jpg" height="130" width="130">
+              </td>
+              <td>
+                <h4><a href="https://www.thekitchn.com/collection/cooking-school" target="_blank">Kitchn Cooking
+                    School</a></h4>
+                <p>Kitchn Cooking School is a great website for learning the basics of how to get started in the
+                  kitchen. For 20 days, it contains
+                  20 lessons to help prepare you on how to cook and get started in the kitchen. In addition to written
+                  instructions and directions, it also contains
+                  videos which you can follow along to for each lesson. The website also allows you to browse and search
+                  various meals based on occasions, dish types,
+                  regional cuisines, view ingredients and find useful tips for kitchen essentials and how to keep it
+                  clean and organized.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </li>
+        <li class="list-group-item">
+          <table>
+            <tr>
+              <td>
+                <img
+                  src="https://www.seekpng.com/png/full/114-1148768_followpinterest-followusfacebook-followusinstagram-youtube-circle-logo-png.png"
+                  height="130" width="130">
+              </td>
+              <td>
+                <h4><a href="https://www.youtube.com/" target="_blank">Youtube</a></h4>
+                <p>Youtube has a ton of recipe video tutorials and even cooking channels dedicated to teaching others
+                  how to cook. Youtube is a
+                  great website to use if you prefer a visual cue on how to get started with cooking. Simply search the
+                  meal or recipe which you want to make.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </li>
+        <li class="list-group-item">
+          <table>
+            <tr>
+              <td>
+                <img src="https://www.budgetbytes.com/wp-content/uploads/2018/06/budgetbytes_logo.vFINALicon.white_.png"
+                  height="130" width="130">
+              </td>
+              <td>
+                <h4><a href="https://www.budgetbytes.com/" target="_blank">Budget Bytes</a></h4>
+                <p>Budget Bytes contains a variety of different cheap and afforadable meals and recipes which you can
+                  make. The website has a cost estimate and breaks down
+                  the prices for each ingridient to see how much it would cost you. The website even allows you to tweak
+                  its servings so it suits your needs.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </li>
+        <li class="list-group-item">
+          <table>
+            <tr>
+              <td>
+                <img
+                  src="https://image.winudf.com/v2/image/c3VwZXJjb29rLnN1cGVyY29vay5zdXBlcmNvby5zdXBlcmNvX3NjcmVlbl8wXzE1MzY0NDg3MzNfMDM0/screen-0.jpg?fakeurl=1&type=.jpg"
+                  height="130" width="130">
+              </td>
+              <td>
+                <h4><a href="https://www.supercook.com/#/desktop" target="_blank">SuperCook</a></h4>
+                <p>SuperCook is a recipe search engine which lets you search for recipe and meals by ingridient which
+                  you have at home. It finds you recipes to use
+                  with as many of your ingridients as possible so nothing goes to watse.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </li>
+      </ul>
+    </div>
+  </body>
 
 </html>
