@@ -51,7 +51,7 @@
 
         <div id="ingredient-controls">
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ingredientModal"
-                style="width:13%;">Add Ingredient</button>
+                style="width:13%;" id="addIngredientButton">Add Ingredient</button>
 
             <div class="d-flex justify-content-evenly align-items-center" id="checkboxes">
                 <label>Show Only:</label>
@@ -100,13 +100,13 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Add a new ingredient</h1>
+                  <h1 class="modal-title fs-5" id="exampleModalLabel" name="ingredientFormTitle">Add a new ingredient</h1>
                 </div>
                 <div class="modal-body">
                   <form class="row g-3" id="ingredientForm">
                     <div class="col-md-12">
                       <label for="ingredientName" class="form-label">Ingredient name</label>
-                      <input type="text" class="form-control mb-3">
+                      <input type="text" class="form-control mb-3" id="ingredientNameBox">
                     </div>
       
                     <div class="col-md-7">
@@ -124,10 +124,10 @@
                       <input type="number" class="form-control mb-3" id="quantity">
                     </div>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-success">Add ingredient</button>
-                </div>
+                    <div class="modal-footer">
+                        <button button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success" id="ingredientFormSubmit">Add ingredient</button>
+                    </div>
                 </form>
               </div>
             </div>
