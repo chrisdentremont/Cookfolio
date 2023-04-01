@@ -737,7 +737,7 @@ eval("\r\n\r\n/* istanbul ignore next  */\r\nfunction styleTagTransform(css, sty
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dist_scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../dist/scss/styles.scss */ \"./dist/scss/styles.scss\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.esm.js\");\n\r\n\n\n//# sourceURL=webpack://recipetracker/./src/js/settings.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dist_scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../dist/scss/styles.scss */ \"./dist/scss/styles.scss\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.esm.js\");\n\r\n\r\n\n\n//# sourceURL=webpack://recipetracker/./src/js/settings.js?");
 
 /***/ }),
 
