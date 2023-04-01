@@ -229,7 +229,27 @@ async function addIngredientToDb(ingredient, recipeID) {
   });
 }
 
-async function delIngredientFromDb(ingredientID) {}
+/**
+ * Deletes given ingredient Object from the user database
+ * @param {*} ingredientID ID of the ingredient being deleted
+ */
+async function delIngredientFromDb(ingredientID) {
+  let newIngredient = {
+    [ingredientID]: deleteField(),
+  };
+  var ingredients = {
+    ingredients: newIngredient,
+  };
+
+  //Remove the ingredient from user database
+  await setDoc(doc(db, "users", auth.currentUser.uid), ingredients, {
+    merge: true,
+  }).then(function () {
+    getDoc(doc(db, "users", auth.currentUser.uid)).then((res) => {
+      displayIngredients(res.data()); //Re-display user's ingredients once the ingredient is removed
+    });
+  });
+}
 
 async function changeUserPassword(newPassword) {
   await updatePassword(auth.currentUser, newPassword)

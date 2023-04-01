@@ -2,44 +2,55 @@ import "../../dist/scss/styles.scss";
 import * as bootstrap from "bootstrap";
 import {addIngredientToDb, delIngredientFromDb} from "./firebase";
 
-let isEditing = false;
-let currentlyEditing = "";
-
-
 /**
- * TODO
+ * IsEditing - variable for whether the last button clicked was edit(true) or an add new button(false)
+ */
+let isEditing = false;
+/**
+ * currentlyEditing - variable of keeping track of the ingredient being edited when in editing mode
+ */
+let currentlyEditing = "";
+/**
+ * storedIngredients - variable that keeps track of all ingredient info from the DB
  */
 let storedIngredients = {};
 
 /**
- * TODO
+ * When the window is loaded event listeners are added to buttons so that they conduct the correct function
  */
 window.onload = () => {
+    //Add ingredient button on add new form
     const ingredientForm = document.getElementById("ingredientForm");
     ingredientForm.addEventListener("submit", addIngredient);
 
+    //Produce checkbox
     const produceCheckBox = document.getElementById("produceCheck");
     produceCheckBox.addEventListener("click", function(){displaySection(this.id)});
 
+    //Dairy checkbox
     const dairyCheckBox = document.getElementById("dairyCheck");
     dairyCheckBox.addEventListener("click", function(){displaySection(this.id)});
 
+    //Protein checkbox
     const proteinCheckBox = document.getElementById("proteinCheck");
     proteinCheckBox.addEventListener("click", function(){displaySection(this.id)});
 
+    //Starchy foods checkbox
     const starchyCheckBox = document.getElementById("starchy_foodsCheck");
     starchyCheckBox.addEventListener("click", function(){displaySection(this.id)});
 
+    //View all checkbox
     const seeAllCheckbox = document.getElementById("viewAllCheck");
     seeAllCheckbox.addEventListener("click", function(){displaySection(this.id)});
 
+    //Add ingredient button on ingredient control bar
     const changeIngredientAddForm = document.getElementById("addIngredientButton");
     changeIngredientAddForm.addEventListener("click", changeToAdd);
 };
 
 /**
- * TODO
- * @param {*} event 
+ * When the user adds a new ingredient, this method adds the ingredient to the firebase database
+ * @param {*} event the click event
  */
 function addIngredient(event){
     event.preventDefault();
@@ -62,8 +73,8 @@ function addIngredient(event){
     event.target.reset();
 }
 /**
- * TODO
- * @param {*} ingredients 
+ * This method adds ingredients to the sections and creates the sections if needed
+ * @param {*} ingredients list of ingredients
  */
 function displayIngredients(ingredients) {
     const sections = document.querySelectorAll(".category-section");
@@ -104,7 +115,7 @@ function displayIngredients(ingredients) {
         categoryListItem.classList.add("list-group-item", "d-flex","align-items-center");
         categoryListItem.setAttribute("id", ingredient);
 
-
+        //If the category doesn't exist yet it gets created and the ingredient gets added to the appropriate section
         if(categoryList == null){
             category.removeAttribute("hidden");
 
@@ -117,15 +128,11 @@ function displayIngredients(ingredients) {
             categoryList = document.createElement("ul");
             categoryList.classList.add("list-group");
             categoryList.setAttribute("id", categoryName + "-list");
-
-            categoryListItem.textContent = ingredientInfo[ingredient]["name"].charAt(0).toUpperCase() + ingredientInfo[ingredient]["name"].slice(1).toLowerCase();
-            
-            
-        }
-        else{
-            categoryListItem.textContent = ingredientInfo[ingredient]["name"].charAt(0).toUpperCase() + ingredientInfo[ingredient]["name"].slice(1).toLowerCase();
         }
 
+        categoryListItem.textContent = ingredientInfo[ingredient]["name"].charAt(0).toUpperCase() + ingredientInfo[ingredient]["name"].slice(1).toLowerCase();
+        
+        //Quantity badge
         let quantityBadge = document.createElement("span");
         quantityBadge.classList.add("badge", "bg-primary", "rounded-pill");
         quantityBadge.textContent = ingredientInfo[ingredient]["quantity"];
@@ -164,6 +171,8 @@ function displayIngredients(ingredients) {
         deleteIcon.setAttribute("width", "15");
         deleteButton.appendChild(deleteIcon);
 
+        deleteButton.addEventListener("click", deleteIngredient);
+        
         tempDiv.appendChild(deleteButton);
 
         //Add Items to category and list
@@ -176,8 +185,8 @@ function displayIngredients(ingredients) {
 }
 
 /**
- * TODO
- * @param {*} checkboxID 
+ * This method is used with the filter checkboxes, if the box was checked it reveals the section, if it is unchecked it hides the section
+ * @param {*} checkboxID ID of the checkbox that was selected
  */
 function displaySection(checkboxID) {
     const currentCheckBox = document.getElementById(checkboxID);
@@ -187,6 +196,7 @@ function displaySection(checkboxID) {
     const section = document.getElementById(tempString + "-section");
 
     if(checkboxID == "viewAllCheck"){
+        //Shows all sections
         if(currentCheckBox.checked){
             document.getElementById("produce-section").removeAttribute("hidden");
             document.getElementById("produceCheck").checked = true;
@@ -197,7 +207,7 @@ function displaySection(checkboxID) {
             document.getElementById("starchy_foods-section").removeAttribute("hidden");
             document.getElementById("starchy_foodsCheck").checked = true;
         }
-        else{
+        else{ //Hides all sections
             document.getElementById("produce-section").hidden = true;
             document.getElementById("produceCheck").checked = false;
             document.getElementById("dairy-section").hidden = true;
@@ -209,18 +219,19 @@ function displaySection(checkboxID) {
         }
     }
     else{
+        //Displays selected section
         if(currentCheckBox.checked){
             section.removeAttribute("hidden");
         }
-        else {
+        else { //Hides selected section
             section.hidden = true;
         }
     }
 }
 
 /**
- * TODO
- * @param {*} ingredientId 
+ * Changes the modal window to display edit information
+ * @param {*} ingredientId Ingredient being edited
  */
 function changeToEdit(ingredientId){
     currentlyEditing = ingredientId;
@@ -234,7 +245,7 @@ function changeToEdit(ingredientId){
     document.getElementById("ingredientFormSubmit").innerHTML = "Save";
 }
 /**
- * TODO
+ * Changes the modal window to display add information
  */
 function changeToAdd(){
     isEditing = false;
@@ -245,4 +256,11 @@ function changeToAdd(){
     document.getElementById("ingredientFormSubmit").innerHTML = "Add Ingredient";
 }
 
-export {addIngredient, displayIngredients, displaySection, changeToEdit, changeToAdd};
+/**
+ * Deletes the ingredient from the DB and removes it from the visual
+ */
+function deleteIngredient(event){
+    var ingredientID = event.target.parentElement.parentElement.parentElement.id;
+    delIngredientFromDb(ingredientID);
+}
+export {addIngredient, displayIngredients, displaySection, changeToEdit, changeToAdd, deleteIngredient};
