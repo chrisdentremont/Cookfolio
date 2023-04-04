@@ -164,8 +164,4 @@ function logIn(event){
   logInForm.reset(); //Reset login form regardless of result
 }
 
-function forgotPassword() {
-  
-}
-
-export { switchForms, forgotPassword, loginPassWarning };
+export { switchForms, loginPassWarning };

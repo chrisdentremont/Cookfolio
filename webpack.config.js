@@ -5,7 +5,6 @@ module.exports = {
   entry: {
     Index: "./src/js/index.js",
     Recipes: "./src/js/recipes.js",
-    Cookingsites: "./src/js/cookingsites.js",
     Ingredients: "./src/js/ingredients.js",
     Settings: "./src/js/settings.js",
     Firebase: "./src/js/firebase.js",
