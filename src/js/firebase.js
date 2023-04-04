@@ -53,13 +53,13 @@ onAuthStateChanged(auth, (user) => {
   //Send user to the home page either if they are not logged in, or their email isn't verified
   if (user) {
     if (!notOnHomePage && user.emailVerified) {
-      window.location.href = "/dist/recipes"; //Send user to recipes if they are logged in + email is verified
+      window.location.href = "/recipes"; //Send user to recipes if they are logged in + email is verified
     } else if (notOnHomePage && !user.emailVerified) {
-      window.location.href = "/dist"; //Send user to home page if user is logged in but email isn't verified
+      window.location.href = "/"; //Send user to home page if user is logged in but email isn't verified
     }
   } else {
     if (notOnHomePage) {
-      window.location.href = "/dist"; //Send user to home page if not logged in
+      window.location.href = "/"; //Send user to home page if not logged in
     }
   }
 
@@ -145,7 +145,7 @@ function signIn(email, password) {
  */
 function logOut() {
   signOut(auth).then(() => {
-    window.location.href = "/dist";
+    window.location.href = "/";
   });
 }
 
