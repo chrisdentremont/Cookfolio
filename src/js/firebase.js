@@ -251,6 +251,12 @@ async function delIngredientFromDb(ingredientID) {
   });
 }
 
+/**
+ * Calls the updatePassword method in the Firebase library to change the user's password.
+ * The new password that was inputted is sent to the method to change to.
+ * 
+ * @param {*} newPassword New password to change to
+ */
 async function changeUserPassword(newPassword) {
   await updatePassword(auth.currentUser, newPassword)
     .then(() => {
@@ -261,6 +267,12 @@ async function changeUserPassword(newPassword) {
     });
 }
 
+/**
+ * Calls the updateEmail method in the Firebase library to change the user's email.
+ * The new email that was inputted is sent to the method to change to.
+ * 
+ * @param {*} newEmail New email to change to
+ */
 async function changeUserEmail(newEmail) {
   await updateEmail(auth.currentUser, newEmail)
     .then(() => {
@@ -271,6 +283,10 @@ async function changeUserEmail(newEmail) {
     });
 }
 
+/**
+ * Deletes the user's account from the firebase authentication table.
+ * Sends the user back to the home page once their account has been deleted.
+ */
 async function deleteUserAccount() {
   await deleteUser(auth.currentUser).then(() => {
     location.href = "";

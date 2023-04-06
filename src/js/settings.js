@@ -1,7 +1,10 @@
 import "../../dist/scss/styles.scss";
-import * as bootstrap from "bootstrap";
 import { changeUserEmail, changeUserPassword } from "./firebase";
 
+/**
+ * Error checking for when the user submits the email change form.
+ * Sends the new email to the updateEmail Firebase method and looks for any errors.
+ */
 async function changeEmail() {
   const emailWarning = document.getElementById("emailWarning");
   emailWarning.classList.remove("warning-text", "success-text");
@@ -19,6 +22,10 @@ async function changeEmail() {
   }
 }
 
+/**
+ * Error checking for when the user submits the password change form.
+ * Sends the new password to the updatePassword Firebase method and looks for any errors.
+ */
 async function changePassword() {
   const passwordWarning = document.getElementById("passwordWarning");
   passwordWarning.classList.remove("warning-text", "success-text");
